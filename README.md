@@ -1,0 +1,1 @@
+# aicerts_poc_dynamic_qr_nodejs
