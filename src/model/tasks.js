@@ -753,15 +753,15 @@ const addDynamicLinkToPdf = async (
   const pdfDc = await PDFDocument.create();
   // Adding QR code to the PDF page
   const pngImage = await pdfDoc.embedPng(qrCode); // Embed QR code image
-  const pngDims = pngImage.scale(0.35); // Scale QR code image
+  const pngDims = pngImage.scale(1); // Scale QR code image
 
   page.drawImage(pngImage, {
     x: positionHorizontal,
-    y: positionVertical,
+    y: height - (positionVertical + pngDims.height),
     width: pngDims.width,
     height: pngDims.height,
   });
-  console.log("Widths", width, pngDims.width, height, pngDims.height);
+  console.log("Width X Height", width, height);
 
   // page.drawImage(pngImage, {
   //   x: width - pngDims.width - 108,
